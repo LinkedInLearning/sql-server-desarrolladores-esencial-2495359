@@ -26,7 +26,7 @@ Las ramas están estructuradas para corresponder a los vídeos del curso. La con
 
 ### Docente
 
-**Freddy Angarita*
+**Freddy Angarita**
 
 Echa un vistazo a mis otros cursos en [LinkedIn Learning](https://www.linkedin.com/learning/instructors/freddy-leandro-angarita-castellanos).
 
