@@ -1,4 +1,4 @@
-# Creación de vistas dinámicas
+# Creación de una base de datos en SQL Server 2022
 
 En este módulo veremos las diferentes opciones para definir crear bases de datos, instalar bases de datos de ejemplo, tener una introducción a PolyBase y conocer el proceso de instalación de PolyBase
 
