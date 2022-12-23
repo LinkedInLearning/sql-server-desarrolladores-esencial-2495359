@@ -1,6 +1,6 @@
-# Funciones escalares
+# Funciones tabla en SQL Server
 
-Comprender el uso de funciones escalares que procesan datos fila a fila y retornan un solo valor
+Funciones que realizan cálculos y retornan tablas para ser combinadas con otras o para retornar resultados
 
 ![image](https://user-images.githubusercontent.com/71371373/209296812-79b1f367-9c00-4156-9634-55658e00d174.png)
 
