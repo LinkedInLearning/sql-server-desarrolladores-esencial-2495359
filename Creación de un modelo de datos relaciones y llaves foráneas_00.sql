@@ -1,0 +1,20 @@
+Use AdventureWorks2019
+GO
+
+CREATE TABLE dbo.Direccion
+	(
+	DireccionID int NOT NULL,
+	Descripcion varchar(300) NOT NULL,
+	Lon int NULL,
+	Lat int NULL
+	)  ON [PRIMARY]
+GO
+ALTER TABLE dbo.Direccion ADD CONSTRAINT
+	PK_Direccion PRIMARY KEY CLUSTERED 
+	(
+	DireccionID
+	) WITH( STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+
+GO
+ALTER TABLE dbo.Direccion SET (LOCK_ESCALATION = TABLE)
+GO
