@@ -1,39 +1,54 @@
 Use AdventureWorks2019
 GO
-----funcion escalar
-DROP FUNCTION IF EXISTS dbo.ufn_DiadelaSemana
+
+--funcion inline table value
+DROP FUNCTION IF EXISTS dbo.ufn_ConductorPorNombre
 GO
-CREATE FUNCTION dbo.ufn_DiadelaSemana (@Fecha datetime)
-RETURNS varchar(20)
-WITH EXECUTE AS CALLER
+CREATE FUNCTION dbo.ufn_ConductorPorNombre (@filtro varchar(50))
+RETURNS TABLE
+AS
+RETURN
+(
+    SELECT *
+    FROM	dbo.Driver 
+    WHERE	Name like '%' + @filtro + '%'
+);
+GO
+
+Select DriverID,Name,Department,AnnualSalary,Incremento,c.ValidFrom,c.ValidTo
+From dbo.ufn_ConductorPorNombre('user') as c
+cross apply (select c.AnnualSalary * 1.13 as Incremento) as incremento_salario
+GO
+
+--funcion multi-statement table-valued
+DROP FUNCTION IF EXISTS dbo.ufn_HallarCalculos
+GO
+CREATE FUNCTION dbo.ufn_HallarCalculos (@NumeroA int, @NumeroB int)
+RETURNS @calculos TABLE
+(
+    NumeroA int NOT NULL,
+	NumeroB int NOT NULL,
+    Suma	int NOT NULL,
+	Resta	int NOT NULL,
+	Mult	int NOT NULL,
+	Div		int NOT NULL
+)
 AS
 BEGIN
-    return DATENAME(WEEKDAY,@Fecha)
-    
+	--realizamos validaciones
+	if @NumeroA < @NumeroB or @NumeroA <= 0 or @NumeroB <= 0
+		return
+	
+    INSERT	@calculos
+    SELECT	@NumeroA,@NumeroB,@NumeroA+@NumeroB
+			,@NumeroA-@NumeroB
+			,@NumeroA*@NumeroB
+			,@NumeroA/@NumeroB
+    RETURN
 END;
 GO
---Prueba
-SELECT dbo.ufn_DiadelaSemana(CONVERT(DATETIME,'2022-09-29',101)) AS 'Resultado';
-GO
+-- Prueba
+SELECT *
+FROM dbo.ufn_HallarCalculos(12,3);
 
-
-DROP FUNCTION IF EXISTS dbo.Multiplica2Numeros
 GO
-CREATE FUNCTION dbo.ufn_Multiplica2Numeros (@a int , @b int)
-RETURNS varchar(20)
-WITH EXECUTE AS CALLER
-AS
-BEGIN
-    return (@a*@b)
-    
-END;
-GO
---Prueba
-SELECT dbo.ufn_Multiplica2Numeros(5,7) AS 'Resultado';
-GO
-
---Ejemplo de funciones escalares del sistema
-Select	Getdate() as FechaActual,
-		TodoEnMayus = UPPER('MicrosOft sql'),
-		TodoEnMinus = UPPER('MiCROSOFT Sql')
-		
