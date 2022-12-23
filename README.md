@@ -1,6 +1,6 @@
-# Opciones para la creación de vistas
+# Vistas indexadas
 
-Se verán opciones tales como With SchemaBinding y With Encryption
+Vistas de alto rendimiento especialmente optimizadas para consultas agregaciones de datos de frecuente acceso
 
 ![image](https://user-images.githubusercontent.com/71371373/209296812-79b1f367-9c00-4156-9634-55658e00d174.png)
 
