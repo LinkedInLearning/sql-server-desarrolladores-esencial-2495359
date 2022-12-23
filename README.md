@@ -1,6 +1,6 @@
 # Creación de tabla usando cliente y TSQL
 
-En este módulo veremos las diferentes opciones para definir crear bases de datos, instalar bases de datos de ejemplo, tener una introducción a PolyBase y conocer el proceso de instalación de PolyBase
+Presentar las opciones para la creación del objeto fundamental para el almacenamiento y manipulación de datos
 
 ![image](https://user-images.githubusercontent.com/71371373/209296812-79b1f367-9c00-4156-9634-55658e00d174.png)
 
