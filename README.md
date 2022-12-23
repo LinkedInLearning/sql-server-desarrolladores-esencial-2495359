@@ -1,4 +1,4 @@
-# Creación y configuracón de la base de datos
+# Tablas temporales
 
 En este módulo veremos las diferentes opciones para definir crear bases de datos, instalar bases de datos de ejemplo, tener una introducción a PolyBase y conocer el proceso de instalación de PolyBase
 
