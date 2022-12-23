@@ -1,6 +1,6 @@
-# Cifrado de columnas
+# Enmascaramiento de datos dinámico granular
 
-Protege información sensible en la base de datos
+Protege información sensible en un esquema basado en permisos y de alto rendimiento
 
 ![image](https://user-images.githubusercontent.com/71371373/209296812-79b1f367-9c00-4156-9634-55658e00d174.png)
 
