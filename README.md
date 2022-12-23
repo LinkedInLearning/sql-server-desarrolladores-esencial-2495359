@@ -1,6 +1,6 @@
-# Trabajando con XML
+# Vistas DMV
 
-Explorar la funcionalidad para manipulación de datos XML en Sql Server 2022
+Vistas de administración dinámica en Sql Server 2022
 
 ![image](https://user-images.githubusercontent.com/71371373/209296812-79b1f367-9c00-4156-9634-55658e00d174.png)
 
