@@ -1,6 +1,6 @@
-# Funciones del sistema en SQL Server 2022
+# Funciones escalares
 
-Funciones del sistema frecuentemente utilizadas para el entedimiento y optimización de nuestra solución
+Comprender el uso de funciones escalares que procesan datos fila a fila y retornan un solo valor
 
 ![image](https://user-images.githubusercontent.com/71371373/209296812-79b1f367-9c00-4156-9634-55658e00d174.png)
 
