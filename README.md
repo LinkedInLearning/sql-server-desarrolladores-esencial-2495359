@@ -1,6 +1,6 @@
 # Creación de una base de datos en SQL Server 2022
 
-En este módulo veremos las diferentes opciones para definir crear bases de datos, instalar bases de datos de ejemplo, tener una introducción a PolyBase y conocer el proceso de instalación de PolyBase
+Introducción a las diferentes opciones para la creación de una base de datos en Sql Server 2022
 
 ![image](https://user-images.githubusercontent.com/71371373/209296812-79b1f367-9c00-4156-9634-55658e00d174.png)
 
