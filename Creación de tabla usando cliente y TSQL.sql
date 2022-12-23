@@ -1,0 +1,20 @@
+Use AdventureWorks2019
+GO
+
+CREATE TABLE dbo.Cliente
+	(
+	ClienteID int NOT NULL,
+	Nombre varchar(100) NOT NULL,
+	Telefono char(12) NULL,
+	Edad smallint NULL
+	)  ON [PRIMARY]
+GO
+ALTER TABLE dbo.Cliente ADD CONSTRAINT
+	PK_Cliente PRIMARY KEY CLUSTERED 
+	(
+	ClienteID
+	) WITH( STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+
+GO
+ALTER TABLE dbo.Cliente SET (LOCK_ESCALATION = TABLE)
+GO
