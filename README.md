@@ -2,7 +2,7 @@
 
 Este es el repositorio del curso de LinkedIn Learning `[SQL Server 2022 para desarrolladores esencial]`. El curso completo está disponible en [LinkedIn Learning][lil-course-url].
 
-![Nombre completo del curso][lil-thumbnail-url][Copy&Past Image from LiL-Buddy] 
+![image](https://user-images.githubusercontent.com/71371373/209296812-79b1f367-9c00-4156-9634-55658e00d174.png)
 
 Consulta el archivo Readme en la rama main para obtener instrucciones e información actualizadas.
 
