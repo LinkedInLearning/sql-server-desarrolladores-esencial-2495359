@@ -1,6 +1,6 @@
 # Creación de un modelo de datos: relaciones y llaves foráneas
 
-En este módulo veremos las diferentes opciones para definir crear bases de datos, instalar bases de datos de ejemplo, tener una introducción a PolyBase y conocer el proceso de instalación de PolyBase
+Utilizando la teoría Entidad-Relación analizar el esquema con el que se definen relaciones en una base de datos Sql Server
 
 ![image](https://user-images.githubusercontent.com/71371373/209296812-79b1f367-9c00-4156-9634-55658e00d174.png)
 
