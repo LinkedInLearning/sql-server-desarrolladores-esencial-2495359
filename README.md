@@ -1,6 +1,6 @@
-# Almacenamiento por filas y columnar (clustered y non clustered)
+# Compresión de datos
 
-Optimización de acceso a grandes volúmenes de datos usando análisis columnar
+Optimización del almacenamiento utilizado en la base de datos usando compresión
 
 ![image](https://user-images.githubusercontent.com/71371373/209296812-79b1f367-9c00-4156-9634-55658e00d174.png)
 
