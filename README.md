@@ -20,7 +20,6 @@ Las ramas están estructuradas para corresponder a los vídeos del curso. La con
    - Última versión de Azure Data Studio https://learn.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver16
 
 2. Clona este repositorio en tu máquina local usando la Terminal (macOS) o CMD (Windows), o una herramienta GUI como SourceTree.
-3. [Instrucciones específicas del curso].
 
 ### Docente
 
