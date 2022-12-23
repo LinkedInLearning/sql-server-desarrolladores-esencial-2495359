@@ -1,6 +1,6 @@
-# Funciones del sistema en SQL Server 2022
+# Procedimientos almacenados
 
-Funciones del sistema frecuentemente utilizadas para el entedimiento y optimización de nuestra solución
+Es la unidad de codificación principal usada en Sql Server para crear lógica de negocio o de análisis de datos
 
 ![image](https://user-images.githubusercontent.com/71371373/209296812-79b1f367-9c00-4156-9634-55658e00d174.png)
 
