@@ -1,54 +1,58 @@
-Use AdventureWorks2019
+USE AdventureWorks2019;
 GO
 
---funcion inline table value
-DROP FUNCTION IF EXISTS dbo.ufn_ConductorPorNombre
+--Uso de sentencia FOR XML
+--Consutrye un xml de la consulta sin nodo primario
+SELECT DriverID,Name,Department
+FROM Driver
+FOR XML RAW, ELEMENTS;
 GO
-CREATE FUNCTION dbo.ufn_ConductorPorNombre (@filtro varchar(50))
-RETURNS TABLE
-AS
-RETURN
+
+--Uso de sentencia FOR XML RAW
+--Consutrye un xml de la consulta con nodo primario
+;With Childrens1
+as
 (
-    SELECT *
-    FROM	dbo.Driver 
-    WHERE	Name like '%' + @filtro + '%'
-);
-GO
-
-Select DriverID,Name,Department,AnnualSalary,Incremento,c.ValidFrom,c.ValidTo
-From dbo.ufn_ConductorPorNombre('user') as c
-cross apply (select c.AnnualSalary * 1.13 as Incremento) as incremento_salario
-GO
-
---funcion multi-statement table-valued
-DROP FUNCTION IF EXISTS dbo.ufn_HallarCalculos
-GO
-CREATE FUNCTION dbo.ufn_HallarCalculos (@NumeroA int, @NumeroB int)
-RETURNS @calculos TABLE
-(
-    NumeroA int NOT NULL,
-	NumeroB int NOT NULL,
-    Suma	int NOT NULL,
-	Resta	int NOT NULL,
-	Mult	int NOT NULL,
-	Div		int NOT NULL
+	SELECT 'Samael' Name
+	UNION ALL
+	SELECT 'Odisea' 
 )
-AS
-BEGIN
-	--realizamos validaciones
-	if @NumeroA < @NumeroB or @NumeroA <= 0 or @NumeroB <= 0
-		return
-	
-    INSERT	@calculos
-    SELECT	@NumeroA,@NumeroB,@NumeroA+@NumeroB
-			,@NumeroA-@NumeroB
-			,@NumeroA*@NumeroB
-			,@NumeroA/@NumeroB
-    RETURN
-END;
+SELECT DriverID as '@DriverID' --para generar un atributo de un elemento
+		,Name as '@Name'
+		,Department as '@Deparment'
+		,(	SELECT	Name as '@Name'
+			From	Childrens1
+			FOR XML PATH ('Children'), type
+		) AS Childrens
+FROM Driver as d
+FOR XML PATH('Driver') --Para identificar el elemento a diferencia de la consulta anterior se especia ques es de nombre Driver
+	, ELEMENTS XSINIL--Para columnas con valores nulos
+	, root('Drivers'); --para agrupar elementos
 GO
--- Prueba
-SELECT *
-FROM dbo.ufn_HallarCalculos(12,3);
 
-GO
+
+--Uso de OpenXML para leer un xml y llevarlo a una forma columnar
+DECLARE @DocHandle int;
+DECLARE @XmlDocument nvarchar(1000);
+SET @XmlDocument = N'<Drivers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Driver DriverID="1" Name="John Connor" Deparment="East Blue">
+    <Childrens>
+      <Children Name="Samael" />
+      <Children Name="Odisea" />
+    </Childrens>
+  </Driver>
+  <Driver DriverID="2" Name="Elvis Presley" Deparment="Famous singer">
+    <Childrens>
+      <Children Name="Samael" />
+      <Children Name="Odisea" />
+    </Childrens>
+  </Driver>
+</Drivers>';
+-- Create an internal representation of the XML document.
+EXEC sp_xml_preparedocument @DocHandle OUTPUT, @XmlDocument;
+-- Execute a SELECT statement using OPENXML rowset provider.
+SELECT *
+FROM OPENXML (@DocHandle, '/Drivers/Driver',1)
+      WITH (DriverID  int,
+            Name varchar(100));
+EXEC sp_xml_removedocument @DocHandle;
