@@ -1,6 +1,6 @@
-# Enmascaramiento de datos dinámico granular
+# Almacenamiento por filas y columnar (clustered y non clustered)
 
-Protege información sensible en un esquema basado en permisos y de alto rendimiento
+Optimización de acceso a grandes volúmenes de datos usando análisis columnar
 
 ![image](https://user-images.githubusercontent.com/71371373/209296812-79b1f367-9c00-4156-9634-55658e00d174.png)
 
